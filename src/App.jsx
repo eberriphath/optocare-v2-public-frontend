@@ -15,6 +15,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import OrderGlasses from "./pages/OrderGlasses";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
 
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/order-glasses" element={<OrderGlasses />} />
 
           <Route
             path="*"

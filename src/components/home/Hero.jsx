@@ -24,19 +24,26 @@ function Hero() {
 
           <div className="mt-9 flex flex-wrap gap-4">
             <Link
-              to="/services"
+              to="/order-glasses"
               className="rounded-full bg-[#172033] px-6 py-3.5 text-sm font-medium text-white transition hover:bg-[#283650]"
             >
-              Explore services
+              Get Your Glasses
             </Link>
 
             <Link
-              to="/partners"
+              to="/services"
               className="rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-medium text-[#172033] transition hover:border-slate-400"
             >
-              Find a partner
+              Explore services
             </Link>
           </div>
+
+          <Link
+            to="/partners"
+            className="mt-5 inline-block text-sm font-medium text-slate-500 underline-offset-4 transition hover:text-[#172033] hover:underline"
+          >
+            Find a partner →
+          </Link>
         </div>
 
         {/* Image */}
