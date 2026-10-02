@@ -6,8 +6,6 @@ function PartnerProfile() {
   const { id } = useParams();
 
   const [partner, setPartner] = useState(null);
-  const [services, setServices] = useState([]);
-  const [products, setProducts] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -26,8 +24,8 @@ function PartnerProfile() {
           ]);
 
         setPartner(partnerResponse.data.partner);
-        setServices(servicesResponse.data.services || []);
-        setProducts(productsResponse.data.products || []);
+        // setServices(servicesResponse.data.services || []);
+        // setProducts(productsResponse.data.products || []);
       } catch (err) {
         console.error("Failed to load partner:", err);
 
@@ -145,12 +143,6 @@ function PartnerProfile() {
                 {partner.company_name}
               </h1>
 
-              {partner.specialty && (
-                <p className="mt-5 text-lg font-medium text-slate-500">
-                  {partner.specialty}
-                </p>
-              )}
-
               {partner.description && (
                 <p className="mt-6 max-w-2xl text-base leading-8 text-slate-500 sm:text-lg">
                   {partner.description}
@@ -213,34 +205,6 @@ function PartnerProfile() {
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-white p-7">
               <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                Services
-              </p>
-
-              <p className="mt-3 text-3xl font-semibold text-[#172033]">
-                {services.length}
-              </p>
-
-              <p className="mt-2 text-sm text-slate-400">
-                Available services
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-white p-7">
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                Products
-              </p>
-
-              <p className="mt-3 text-3xl font-semibold text-[#172033]">
-                {products.length}
-              </p>
-
-              <p className="mt-2 text-sm text-slate-400">
-                Available products
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-white p-7">
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
                 Location
               </p>
 
@@ -253,170 +217,6 @@ function PartnerProfile() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
-          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-                What they offer
-              </p>
-
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#172033] sm:text-4xl">
-                Services
-              </h2>
-            </div>
-
-            {services.length > 0 && (
-              <Link
-                to="/services"
-                className="text-sm font-semibold text-[#172033] underline underline-offset-4"
-              >
-                Explore all services
-              </Link>
-            )}
-          </div>
-
-          {services.length === 0 ? (
-            <div className="mt-10 rounded-3xl border border-slate-200 bg-[#f8f9fb] px-6 py-16 text-center">
-              <p className="text-sm text-slate-400">
-                No public services are currently listed.
-              </p>
-            </div>
-          ) : (
-            <div className="mt-10 grid gap-5 md:grid-cols-2">
-              {services.map((service) => (
-                <Link
-                  key={service.id}
-                  to={`/services/${service.id}`}
-                  className="group rounded-3xl border border-slate-200 bg-[#f8f9fb] p-7 transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:bg-white hover:shadow-xl hover:shadow-slate-200/40"
-                >
-                  <div className="flex items-start justify-between gap-5">
-                    <div>
-                      <span className="rounded-full bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                        {service.category || "Optical care"}
-                      </span>
-
-                      <h3 className="mt-5 text-xl font-semibold tracking-tight text-[#172033]">
-                        {service.name}
-                      </h3>
-
-                      {service.description && (
-                        <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-500">
-                          {service.description}
-                        </p>
-                      )}
-                    </div>
-
-                    <span className="text-slate-300 transition group-hover:translate-x-1 group-hover:text-[#172033]">
-                      →
-                    </span>
-                  </div>
-
-                  {service.price !== null &&
-                    service.price !== undefined && (
-                      <div className="mt-6 border-t border-slate-200 pt-5">
-                        <p className="text-xs uppercase tracking-[0.15em] text-slate-400">
-                          Price
-                        </p>
-
-                        <p className="mt-1 text-sm font-semibold text-[#172033]">
-                          KSh{" "}
-                          {Number(service.price).toLocaleString()}
-                        </p>
-                      </div>
-                    )}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Products */}
-      <section className="border-t border-slate-200 bg-[#f8f9fb]">
-        <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
-          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
-                Available products
-              </p>
-
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#172033] sm:text-4xl">
-                Products
-              </h2>
-            </div>
-
-            {products.length > 0 && (
-              <Link
-                to="/products"
-                className="text-sm font-semibold text-[#172033] underline underline-offset-4"
-              >
-                Explore all products
-              </Link>
-            )}
-          </div>
-
-          {products.length === 0 ? (
-            <div className="mt-10 rounded-3xl border border-slate-200 bg-white px-6 py-16 text-center">
-              <p className="text-sm text-slate-400">
-                No public products are currently listed.
-              </p>
-            </div>
-          ) : (
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {products.map((product) => (
-                <Link
-                  key={product.id}
-                  to={`/products/${product.id}`}
-                  className="group overflow-hidden rounded-3xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/40"
-                >
-                  <div className="aspect-square overflow-hidden bg-[#eef1f4]">
-                    {product.image_url ? (
-                      <img
-                        src={product.image_url}
-                        alt={product.name}
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="flex h-full flex-col items-center justify-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-xl font-semibold text-[#172033] shadow-sm">
-                          O
-                        </div>
-
-                        <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                          Cloudinary image
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-5">
-                    {product.brand && (
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
-                        {product.brand}
-                      </p>
-                    )}
-
-                    <h3 className="mt-2 line-clamp-2 text-lg font-semibold tracking-tight text-[#172033]">
-                      {product.name}
-                    </h3>
-
-                    {product.price !== null &&
-                      product.price !== undefined && (
-                        <p className="mt-4 text-sm font-semibold text-[#172033]">
-                          KSh{" "}
-                          {Number(product.price).toLocaleString()}
-                        </p>
-                      )}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
         </div>
       </section>
 

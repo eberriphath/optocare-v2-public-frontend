@@ -48,20 +48,12 @@ function Hero() {
 
         {/* Image */}
         <div className="relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-slate-200 lg:aspect-[4/5]">
-
-            {/* Cloudinary hero image placeholder */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-                  Cloudinary
-                </p>
-                <p className="mt-2 text-sm text-slate-400">
-                  Hero image placeholder
-                </p>
-              </div>
-            </div>
-
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-slate-200">
+            <img
+              src="https://res.cloudinary.com/qnyhrcim/image/upload/v1790940637/Our_new_selection___The_House_of_Vintage_Frames_Tallinn_voi5vu.jpg"
+              alt="Curated selection of vintage optical frames"
+              className="h-full w-full object-cover"
+            />
           </div>
 
           {/* Floating information card */}
@@ -75,6 +67,7 @@ function Hero() {
             </p>
           </div>
         </div>
+
       </div>
     </section>
   );

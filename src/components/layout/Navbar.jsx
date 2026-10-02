@@ -24,9 +24,11 @@ function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           {/* Cloudinary logo placeholder */}
-          <div className="flex h-10 w-32 items-center justify-center rounded-lg bg-slate-100 text-xs font-medium tracking-widest text-slate-400">
-            OPTOCARE LOGO
-          </div>
+          <img
+            src="https://res.cloudinary.com/qnyhrcim/image/upload/v1790627860/1000027283-removebg-preview_svmmhf.png"
+            alt="Optocare Logo"
+            className="h-10 w-auto object contain"
+          />
         </Link>
 
         {/* Desktop navigation */}

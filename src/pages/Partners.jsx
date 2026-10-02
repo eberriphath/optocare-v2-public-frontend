@@ -73,7 +73,6 @@ function Partners() {
         !searchTerm ||
         partner.company_name?.toLowerCase().includes(searchTerm) ||
         partner.location?.toLowerCase().includes(searchTerm) ||
-        partner.specialty?.toLowerCase().includes(searchTerm) ||
         partner.description?.toLowerCase().includes(searchTerm);
 
       return matchesLocation && matchesType && matchesSearch;
@@ -140,7 +139,7 @@ function Partners() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search providers, specialties or locations..."
+                placeholder="Search providers or locations..."
                 className="h-12 w-full rounded-full border border-slate-200 bg-white pl-12 pr-5 text-sm text-[#172033] outline-none transition placeholder:text-slate-400 focus:border-[#172033]"
               />
             </div>
@@ -332,12 +331,6 @@ function Partners() {
 
                     {/* Description */}
                     <div className="mt-6">
-                      {partner.specialty && (
-                        <p className="text-sm font-medium text-[#172033]">
-                          {partner.specialty}
-                        </p>
-                      )}
-
                       {partner.description && (
                         <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-500">
                           {partner.description}
