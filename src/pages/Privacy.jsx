@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/seo/SEO";
 
 function Privacy() {
   return (
+    <>
+      <SEO
+        title="Privacy Policy | Optocare"
+        description="Learn how Optocare collects, uses, stores, and protects information when you use our website and services."
+        path="/privacy"
+      />
     <main className="bg-[#f8f9fb]">
       {/* Header */}
       <section className="bg-white">
@@ -380,6 +387,7 @@ function Privacy() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

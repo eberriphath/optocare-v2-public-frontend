@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/api";
+import SEO from "../components/seo/SEO";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -81,6 +82,13 @@ function Products() {
   };
 
   return (
+    <>
+      <SEO
+        title="Optical Products"
+        description="Discover optical products offered by verified businesses across the Optocare network, including eyewear, frames, sunglasses, and more."
+        path="/products"
+      />
+
     <main className="bg-[#f8f9fb]">
       {/* Introduction */}
       <section className="border-b border-slate-200 bg-white">
@@ -359,6 +367,7 @@ function Products() {
         )}
       </section>
     </main>
+   </>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/api";
+import SEO from "../components/seo/SEO";
 
 function Partners() {
   const [partners, setPartners] = useState([]);
@@ -94,6 +95,13 @@ function Partners() {
   };
 
   return (
+    <>
+      <SEO
+        title="Optical Providers"
+        description="Discover verified optical businesses and professionals providing services and products through Optocare."
+        path="/partners"
+      />
+
     <main className="bg-[#f8f9fb]">
       {/* Introduction */}
       <section className="border-b border-slate-200 bg-white">
@@ -400,6 +408,7 @@ function Partners() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

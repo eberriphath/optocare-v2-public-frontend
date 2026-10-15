@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/seo/SEO";
 
 function Contact() {
   return (
+    <>
+      <SEO
+        title="Contact Optocare"
+        description="Get in touch with Optocare for inquiries about optical care, partnerships, or any questions related to the Optocare platform."
+        path="/contact"
+      />
+
     <main className="bg-[#f8f9fb]">
       {/* Hero */}
       <section className="overflow-hidden bg-white">
@@ -394,6 +402,7 @@ function Contact() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

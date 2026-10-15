@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/seo/SEO";
 
 function About() {
   return (
+    <>
+      <SEO
+        title="About Optocare"
+        description="Optocare is building a more connected way to discover optical care, services, products, and trusted professionals."
+        path="/about"
+      />
+
     <main className="bg-[#f8f9fb]">
       {/* Hero */}
       <section className="overflow-hidden bg-white">
@@ -361,6 +369,7 @@ function About() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

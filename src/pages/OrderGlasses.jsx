@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../api/api";
+import SEO from "../components/seo/SEO";
 
 function OrderGlasses() {
   const [formData, setFormData] = useState({
@@ -96,6 +98,14 @@ function OrderGlasses() {
 
   if (success) {
     return (
+      <>
+        <SEO
+          title="Order Glasses"
+          description="Submit your glasses order request and get connected with the right optical partner."
+          path="/order-glasses"
+          noindex={true}
+        />
+
       <main className="min-h-[70vh] bg-[#f8f9fb] px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-2xl justify-center">
           <div className="w-full rounded-[2rem] border border-slate-200 bg-white p-8 text-center shadow-sm sm:p-12">
@@ -131,10 +141,18 @@ function OrderGlasses() {
           </div>
         </div>
       </main>
+      </>
     );
   }
 
   return (
+    <>
+      <SEO
+        title="Order Glasses"
+        description="Submit your glasses order request and get connected with the right optical partner."
+        path="/order-glasses"
+       />
+
     <main className="min-h-screen bg-[#f8f9fb] px-5 py-12 sm:px-8 lg:px-10 lg:py-16">
       <div className="mx-auto max-w-4xl">
 
@@ -918,6 +936,7 @@ function OrderGlasses() {
         </form>
       </div>
     </main>
+    </>
   );
 }
 

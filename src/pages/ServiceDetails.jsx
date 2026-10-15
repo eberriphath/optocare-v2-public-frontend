@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import api from "../api/api";
+import SEO from "../components/seo/SEO";
 
 function ServiceDetails() {
   const { id } = useParams();
@@ -89,7 +90,17 @@ function ServiceDetails() {
 
   const partner = service.partner;
 
+  const serviceDescription = service.description =
+    service.description?.trim() ||
+    'Learn about ${service.name}, a professional optical care service provided by Optocare. Discover the benefits, pricing, and location of this service to make an informed decision about your eye care needs.';
+
   return (
+    <>
+      <SEO
+        title={service.name}
+        description={serviceDescription}
+        path={`/services/${service.id}`}
+      />
     <main className="bg-[#f8f9fb]">
       {/* Breadcrumb */}
       <div className="border-b border-slate-200 bg-white">
@@ -322,6 +333,7 @@ function ServiceDetails() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

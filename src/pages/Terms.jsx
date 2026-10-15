@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
+import SEO from "../components/seo/SEO";
 
 function Terms() {
   return (
+    <>
+      <SEO
+        title="Terms & Conditions"
+        description="Read the Terms & Conditions that govern your use of the Optocare website and services."
+        path="/terms"
+      />
+      
     <main className="bg-[#f8f9fb]">
       {/* Header */}
       <section className="bg-white">
@@ -451,6 +459,7 @@ function Terms() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import api from "../api/api";
+import SEO from "../components/seo/SEO";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -90,7 +91,18 @@ function ProductDetails() {
 
   const partner = product.partner;
 
+  const ProductDescription =
+    product.description?.trim() ||
+     'Discover ${product.name}${product.brand ? ` by ${product.brand}` : ""}. in the Optocare optical product collection.';
+
   return (
+    <>
+      <SEO
+        title={'${product.name}${product.brand ? ` by ${product.brand}` : ""} '}
+        description={ProductDescription}
+        path={'/products/${id}'}
+        image={product.image_url || undefined}
+      />
     <main className="bg-[#f8f9fb]">
       {/* Breadcrumb */}
       <div className="border-b border-slate-200 bg-white">
@@ -381,6 +393,7 @@ function ProductDetails() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

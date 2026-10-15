@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import api from "../api/api";
+import SEO from "../components/seo/SEO";
 
 function PartnerProfile() {
   const { id } = useParams();
@@ -103,7 +104,19 @@ function PartnerProfile() {
     );
   }
 
+  const partnerDescription =
+    partner.description?.trim() ||
+    `Explore ${partner.company_name}, a trusted optical provider offering quality eyewear, eye care services, and more through the Optocare network.`;
+
+
   return (
+    <>
+      <SEO
+        title={`${partner.company_name} | Optical Provider`}
+        description={partnerDescription}
+        path={`/partners/${partner.id}`}
+      />
+
     <main className="bg-[#f8f9fb]">
       {/* Breadcrumb */}
       <div className="border-b border-slate-200 bg-white">
@@ -253,6 +266,7 @@ function PartnerProfile() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

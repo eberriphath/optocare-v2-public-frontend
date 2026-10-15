@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/api";
+import SEO from "../components/seo/SEO";
 
 const initialForm = {
   full_name: "",
@@ -120,6 +121,12 @@ function BecomePartner() {
   }
 
   return (
+    <>
+      <SEO
+        title="Become a partner | Optocare"
+        description="Join the Optocare network and make your optical business, services, and products easier for people to discover."
+        path="/become-a-partner"
+      />
     <main className="bg-[#f8f9fb]">
       {/* Hero */}
       <section className="overflow-hidden bg-white">
@@ -525,6 +532,7 @@ function BecomePartner() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

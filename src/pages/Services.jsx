@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/api";
+import SEO from "../components/seo/SEO";
 
 function Services() {
   const [services, setServices] = useState([]);
@@ -58,6 +59,13 @@ function Services() {
   }, [services, search, category]);
 
   return (
+    <>
+      <SEO
+        title="Optical Services"
+        description="Explore optical services through the Optocare network, including professional eye-care services and support from optical providers."
+        path="/services"
+      />
+
     <main className="bg-[#f8f9fb]">
       {/* Page introduction */}
       <section className="border-b border-slate-200 bg-white">
@@ -305,6 +313,7 @@ function Services() {
         )}
       </section>
     </main>
+  </>
   );
 }
 
