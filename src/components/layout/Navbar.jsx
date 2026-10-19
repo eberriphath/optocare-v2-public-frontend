@@ -57,6 +57,13 @@ function Navbar() {
           </Link>
         </div>
 
+          <Link
+            to="/order-glasses"
+            className="rounded-full bg-[#F28C28] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#D97706]"
+          >
+            Order Glasses
+          </Link>
+
         {/* Mobile button */}
         <button
           type="button"
@@ -85,6 +92,14 @@ function Navbar() {
                 {link.label}
               </NavLink>
             ))}
+
+            <Link
+              to="/order-glasses"
+              onClick={() => setOpen(false)}
+              className="border-b border-slate-100 py-4 text-sm font-semibold text-[#D97706]"
+            >
+              Order Glasses
+            </Link>
 
             <Link
               to="/contact"
