@@ -17,16 +17,9 @@ function PartnerProfile() {
         setLoading(true);
         setError("");
 
-        const [partnerResponse, servicesResponse, productsResponse] =
-          await Promise.all([
-            api.get(`/partners/${id}`),
-            api.get(`/partners/${id}/services`),
-            api.get(`/partners/${id}/products`),
-          ]);
-
+        const partnerResponse = await api.get(`/partners/${id}`);
         setPartner(partnerResponse.data.partner);
-        // setServices(servicesResponse.data.services || []);
-        // setProducts(productsResponse.data.products || []);
+        
       } catch (err) {
         console.error("Failed to load partner:", err);
 

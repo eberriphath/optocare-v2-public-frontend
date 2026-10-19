@@ -91,16 +91,16 @@ function ProductDetails() {
 
   const partner = product.partner;
 
-  const ProductDescription =
+  const productDescription =
     product.description?.trim() ||
-     'Discover ${product.name}${product.brand ? ` by ${product.brand}` : ""}. in the Optocare optical product collection.';
+    `Discover ${product.name}${product.brand ? ` by ${product.brand}` : ""} in the Optocare optical product collection.`;
 
   return (
     <>
       <SEO
-        title={'${product.name}${product.brand ? ` by ${product.brand}` : ""} '}
-        description={ProductDescription}
-        path={'/products/${id}'}
+        title={`${product.name}${product.brand ? ` | ${product.brand}` : ""}`}
+        description={productDescription}
+        path={`/products/${id}`}
         image={product.image_url || undefined}
       />
     <main className="bg-[#f8f9fb]">

@@ -90,9 +90,9 @@ function ServiceDetails() {
 
   const partner = service.partner;
 
-  const serviceDescription = service.description =
+  const serviceDescription =
     service.description?.trim() ||
-    'Learn about ${service.name}, a professional optical care service provided by Optocare. Discover the benefits, pricing, and location of this service to make an informed decision about your eye care needs.';
+    `Learn about ${service.name}, a professional optical care service provided by Optocare. Discover the benefits, pricing, and location of this service to make an informed decision about your eye care needs.`;
 
   return (
     <>
